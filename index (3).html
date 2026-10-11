@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Legacy — Portfolio</title>
+  <meta name="description" content="UI/UX and 3D web experiences, crafted with intention.">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Fonts: preload self-hosted woff2 (drop your files into /assets/fonts) -->
+  <link rel="preload" href="assets/fonts/display.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/body.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/mono.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Compiled from styles.scss:  sass styles.scss styles.css --style=compressed -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Pinned CDN builds. Self-host them for production if you prefer. -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <!-- Custom cursor (hidden on touch / mobile by JS + CSS) -->
+  <div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+
+  <main>
+
+    <!-- ============================================================
+         SECTIONS 1–2 (not supplied) mount here.
+         ============================================================ -->
+
+    <!-- ============================================================
+         HERO (name + portrait)
+         ============================================================ -->
+    <section class="hero" id="hero" aria-label="Introduction">
+      <div class="hero__portrait" aria-hidden="true">
+        <!-- TODO: confirm portrait filename -->
+        <img src="assets/img/portrait.avif" alt="" fetchpriority="high" decoding="async">
+      </div>
+
+      <div class="hero__content">
+        <!-- Split per character in JS -->
+        <h1 class="hero__name" aria-label="Meer Mohsin">MEER MOHSIN</h1>
+        <p class="hero__sub">I create digital experiences that aren't just seen, they're felt. From the first impression to the smallest interaction, I focus on making every experience clear, immersive, and memorable.</p>
+      </div>
+
+      <div class="hero__cue" aria-hidden="true">
+        <span class="hero__cue-text">Scroll down for more</span>
+        <span class="hero__cue-line"></span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. STATEMENT MARQUEE (two rows, opposite directions)
+         ============================================================ -->
+    <section class="statement" id="statement" aria-label="Statement">
+      <p class="visually-hidden">It Was Always Going to Be This Way.</p>
+      <div class="outline-marquee" data-dir="-1" aria-hidden="true">
+        <div class="outline-marquee__track"><span>It Was Always Going to Be This Way.</span></div>
+      </div>
+      <div class="outline-marquee" data-dir="1" aria-hidden="true">
+        <div class="outline-marquee__track"><span>It Was Always Going to Be This Way.</span></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. "THIS WILL FEEL DIFFERENT" (fire section)
+         ============================================================ -->
+    <section class="fire" id="fire" aria-labelledby="fire-title">
+      <div class="fire__bleed" aria-hidden="true"></div>
+      <img class="fire__gif fire__gif--top" src="assets/img/fire.gif" alt="" aria-hidden="true" loading="lazy" decoding="async">
+
+      <div class="fire__inner">
+        <!-- The "[ ]" in the brief is rendered as an empty gap between words -->
+        <h2 id="fire-title" class="fire__title">
+          <span class="fw">This</span> <span class="fw">Will</span>
+          <span class="fire__gap" aria-hidden="true"></span>
+          <span class="fw">Feel</span>
+          <span class="fire__gap" aria-hidden="true"></span>
+          <span class="fw fw--fire">Different</span>
+        </h2>
+
+        <!-- TODO: brief was truncated; ending written as a placeholder -->
+        <p class="fire__para">I don't just build websites, I create experiences that people enjoy exploring, remembering, and coming back to.</p>
+
+        <ul class="stats">
+          <li class="stat">
+            <span class="stat__num"><span class="stat__val" data-count="10">10</span>+</span>
+            <span class="stat__cap">Each one different. Each one demanding something sharper.</span>
+          </li>
+          <li class="stat">
+            <span class="stat__num"><span class="stat__val" data-count="25">25</span>+</span>
+            <span class="stat__cap">Each one pushed beyond the obvious.</span>
+          </li>
+          <li class="stat">
+            <span class="stat__num"><span class="stat__val" data-count="6">6</span>+</span>
+            <span class="stat__cap">Learning fast. Moving faster.</span>
+          </li>
+        </ul>
+
+        <!-- TODO: brief was truncated; ending written as a placeholder -->
+        <p class="fire__closing">Design attracts attention. Development brings it to life. Together, they make something people remember.</p>
+      </div>
+
+      <img class="fire__gif fire__gif--bottom" src="assets/img/fire.gif" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    </section>
+
+    <!-- ============================================================
+         6. SERVICES ("LEGACY")
+         ============================================================ -->
+    <section class="services" id="services" aria-labelledby="services-title">
+      <p class="services__bg" aria-hidden="true">LEGACY</p>
+
+      <!-- Auto-scrolling, slightly rotated image rail (cloned in JS for a seamless loop) -->
+      <div class="rail" aria-hidden="true">
+        <div class="rail__track">
+          <figure class="rail__item"><img src="assets/img/services-1.avif" alt="" loading="lazy" decoding="async"></figure>
+          <figure class="rail__item"><img src="assets/img/services-2.avif" alt="" loading="lazy" decoding="async"></figure>
+          <figure class="rail__item"><img src="assets/img/services-3.avif" alt="" loading="lazy" decoding="async"></figure>
+          <figure class="rail__item"><img src="assets/img/services-4.avif" alt="" loading="lazy" decoding="async"></figure>
+          <figure class="rail__item"><img src="assets/img/services-5.avif" alt="" loading="lazy" decoding="async"></figure>
+          <figure class="rail__item"><img src="assets/img/services-6.avif" alt="" loading="lazy" decoding="async"></figure>
+          <figure class="rail__item"><img src="assets/img/services-7.avif" alt="" loading="lazy" decoding="async"></figure>
+          <figure class="rail__item"><img src="assets/img/services-8.avif" alt="" loading="lazy" decoding="async"></figure>
+        </div>
+      </div>
+
+      <div class="services__inner">
+        <h2 id="services-title" class="visually-hidden">Services</h2>
+
+        <ul class="service-list">
+          <li class="service" data-preview="assets/img/services-2.avif">
+            <a class="service__name" href="#contact">UI - UX</a>
+          </li>
+          <li class="service" data-preview="assets/img/services-6.avif">
+            <a class="service__name" href="#contact">3D WEB</a>
+          </li>
+        </ul>
+
+        <ul class="tags">
+          <li>Problem Solver</li>
+          <li>User Research</li>
+          <li>Frontend Engineering</li>
+          <li>Three.js / WebGL</li>
+          <li>GSAP Animation</li>
+          <li>Performance Optimization</li>
+        </ul>
+      </div>
+
+      <!-- Hover preview that follows the cursor (lerped) -->
+      <div class="svc-preview" aria-hidden="true"><img src="" alt=""></div>
+    </section>
+
+    <!-- ============================================================
+         7. THE FALL (pinned transition scene)
+         ============================================================ -->
+    <section class="fall" id="fall" aria-label="Transition">
+      <div class="fall__stage">
+        <div class="fall__text">
+          <p class="fall__line" data-line="1">The fall was always part of the path.</p>
+          <p class="fall__line" data-line="2">And from that point, everything began to rebuild with intention.</p>
+        </div>
+
+        <!-- Parallax layer: wrapper takes the y-travel, img takes the sway rotation -->
+        <div class="fall__men" aria-hidden="true">
+          <img src="assets/img/falling.gif" alt="" loading="lazy" decoding="async">
+        </div>
+
+        <!-- Torn paper edge wiping up over the section -->
+        <div class="fall__paper" aria-hidden="true">
+          <img src="assets/img/paper-tore.png" alt="" loading="lazy" decoding="async">
+          <span class="fall__paper-fill"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         8. GALLERY / CONTRIBUTION
+         ============================================================ -->
+    <section class="gallery" id="gallery" aria-label="Gallery">
+      <div class="gallery__head">
+        <div class="ring" data-cursor="VIEW">
+          <div class="ring__scroll">
+            <img class="ring__img" src="assets/img/ring.avif" alt="" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <span class="gallery__index" aria-hidden="true">01</span>
+      </div>
+
+      <div class="gallery__grid">
+        <figure class="g-item g-item--a" data-cursor="VIEW"><img src="assets/img/gallery-1.avif" alt="Gallery image 1" loading="lazy" decoding="async"></figure>
+        <figure class="g-item g-item--b" data-cursor="VIEW"><img src="assets/img/gallery-2.avif" alt="Gallery image 2" loading="lazy" decoding="async"></figure>
+        <figure class="g-item g-item--c" data-cursor="VIEW"><img src="assets/img/gallery-3.avif" alt="Gallery image 3" loading="lazy" decoding="async"></figure>
+        <figure class="g-item g-item--d" data-cursor="VIEW"><img src="assets/img/gallery-4.avif" alt="Gallery image 4" loading="lazy" decoding="async"></figure>
+        <figure class="g-item g-item--e" data-cursor="VIEW"><img src="assets/img/gallery-5.avif" alt="Gallery image 5" loading="lazy" decoding="async"></figure>
+        <figure class="g-item g-item--f" data-cursor="VIEW"><img src="assets/img/gallery-6.avif" alt="Gallery image 6" loading="lazy" decoding="async"></figure>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         9. MY WORK
+         ============================================================ -->
+    <section class="work" id="work" aria-labelledby="work-title">
+      <div class="work__intro">
+        <h2 id="work-title" class="work__title">My work</h2>
+        <p class="work__hint">Scroll down for more</p>
+      </div>
+
+      <div class="work__pin">
+        <div class="work__counter" aria-hidden="true">
+          <span class="work__counter-current">01</span><span class="work__counter-total">/05</span>
+        </div>
+
+        <ul class="work__track">
+          <li class="card" data-cursor="VIEW">
+            <a class="card__link" href="#" aria-label="Project: COD">
+              <div class="card__media"><img src="assets/img/cod.avif" alt="" loading="lazy" decoding="async"><span class="card__grain"></span></div>
+              <span class="card__num">01</span>
+            </a>
+          </li>
+          <li class="card" data-cursor="VIEW">
+            <a class="card__link" href="#" aria-label="Project: AZ">
+              <div class="card__media"><img src="assets/img/az.avif" alt="" loading="lazy" decoding="async"><span class="card__grain"></span></div>
+              <span class="card__num">02</span>
+            </a>
+          </li>
+          <li class="card" data-cursor="VIEW">
+            <a class="card__link" href="#" aria-label="Project: AM">
+              <div class="card__media"><img src="assets/img/am.avif" alt="" loading="lazy" decoding="async"><span class="card__grain"></span></div>
+              <span class="card__num">03</span>
+            </a>
+          </li>
+          <li class="card" data-cursor="VIEW">
+            <a class="card__link" href="#" aria-label="Project: Chat">
+              <div class="card__media"><img src="assets/img/chat.avif" alt="" loading="lazy" decoding="async"><span class="card__grain"></span></div>
+              <span class="card__num">04</span>
+            </a>
+          </li>
+          <li class="card" data-cursor="VIEW">
+            <a class="card__link" href="#" aria-label="Project: FI">
+              <div class="card__media"><img src="assets/img/fi.avif" alt="" loading="lazy" decoding="async"><span class="card__grain"></span></div>
+              <span class="card__num">05</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         10. PROCESS (4 pinned steps, background swap)
+         ============================================================ -->
+    <section class="process" id="process" aria-label="Process">
+      <!-- One layer per step. All use mohsin-standing.avif with a different
+           crop/tint so the swap works with a single asset; replace per step if you have more. -->
+      <div class="process__bgs" aria-hidden="true">
+        <div class="process__bg" data-bg="1"><img src="assets/img/mohsin-standing.avif" alt="" loading="lazy" decoding="async"></div>
+        <div class="process__bg" data-bg="2"><img src="assets/img/mohsin-standing.avif" alt="" loading="lazy" decoding="async"></div>
+        <div class="process__bg" data-bg="3"><img src="assets/img/mohsin-standing.avif" alt="" loading="lazy" decoding="async"></div>
+        <div class="process__bg" data-bg="4"><img src="assets/img/mohsin-standing.avif" alt="" loading="lazy" decoding="async"></div>
+      </div>
+
+      <div class="process__progress" aria-hidden="true"><span class="process__bar"></span></div>
+
+      <div class="process__steps">
+        <article class="step" data-step="1">
+          <h3 class="step__title">Discovery</h3>
+          <p class="step__text">Every great story begins with understanding. We explore your goals, your audience, and the context the work has to live in.</p>
+        </article>
+        <article class="step" data-step="2">
+          <h3 class="step__title">Creative Direction</h3>
+          <p class="step__text">Ideas take shape through thoughtful research, wireframes, visual exploration, motion concepts, and design systems.</p>
+        </article>
+        <article class="step" data-step="3">
+          <h3 class="step__title">Digital Craftsmanship</h3>
+          <p class="step__text">Concepts become living interfaces. Every interaction, animation, and line of code is crafted for performance, accessibility, and lasting impact.</p>
+        </article>
+        <article class="step" data-step="4">
+          <h3 class="step__title">Launch &amp; Evolution</h3>
+          <p class="step__text">A successful launch is only the beginning. We measure, refine, and keep the work evolving as your audience grows.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         11. VISUAL JOURNAL (blog)
+         ============================================================ -->
+    <section class="journal" id="journal" aria-labelledby="journal-title">
+      <header class="journal__head">
+        <h2 id="journal-title" class="journal__title">VISUAL JOURNAL</h2>
+        <p class="journal__desc">Notes on motion, interface psychology, and the thinking behind the work.</p>
+      </header>
+
+      <div class="journal__grid">
+        <article class="post" data-cursor="READ">
+          <a class="post__link" href="#">
+            <div class="post__media"><img src="assets/img/blog-1.avif" alt="" loading="lazy" decoding="async"></div>
+            <time class="post__date" datetime="2026-07-01">July 1, 2026</time>
+            <h3 class="post__title"><span class="post__title-text">Motion Beyond Animation</span></h3>
+          </a>
+        </article>
+        <article class="post" data-cursor="READ">
+          <a class="post__link" href="#">
+            <div class="post__media"><img src="assets/img/blog-2.avif" alt="" loading="lazy" decoding="async"></div>
+            <time class="post__date" datetime="2026-06-14">June 14, 2026</time>
+            <h3 class="post__title"><span class="post__title-text">The Psychology of Dark Interfaces</span></h3>
+          </a>
+        </article>
+        <article class="post" data-cursor="READ">
+          <a class="post__link" href="#">
+            <div class="post__media"><img src="assets/img/blog-3.avif" alt="" loading="lazy" decoding="async"></div>
+            <time class="post__date" datetime="2026-05-22">May 22, 2026</time>
+            <h3 class="post__title"><span class="post__title-text">Designing Experiences, Not Websites</span></h3>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         12. AWARDS & RECOGNITIONS
+         ============================================================ -->
+    <section class="awards" id="awards" aria-labelledby="awards-title">
+      <div class="awards__heading">
+        <h2 id="awards-title" class="awards__title awards__title--front">Awards &amp; Recognitions</h2>
+        <span class="awards__title awards__title--back" aria-hidden="true">Awards &amp; Recognitions</span>
+      </div>
+
+      <p class="awards__copy">Forged in obsession, shaped in darkness, and recognized beyond the screen.</p>
+
+      <!-- TODO: replace placeholder rows with your real awards and URLs -->
+      <ul class="awards__list">
+        <li class="award">
+          <a class="award__link" href="https://www.awwwards.com/" target="_blank" rel="noopener">
+            <span class="award__name">Site of the Day</span>
+            <span class="award__org">Awwwards</span>
+            <span class="award__year">2026</span>
+            <svg class="award__arrow" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+        </li>
+        <li class="award">
+          <a class="award__link" href="https://www.awwwards.com/" target="_blank" rel="noopener">
+            <span class="award__name">Developer Award</span>
+            <span class="award__org">Awwwards</span>
+            <span class="award__year">2026</span>
+            <svg class="award__arrow" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+        </li>
+        <li class="award">
+          <a class="award__link" href="https://www.awwwards.com/" target="_blank" rel="noopener">
+            <span class="award__name">Honorable Mention</span>
+            <span class="award__org">Awwwards</span>
+            <span class="award__year">2025</span>
+            <svg class="award__arrow" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============================================================
+         13. FINAL CTA + FOOTER
+         ============================================================ -->
+    <section class="cta" id="cta" aria-labelledby="cta-title">
+      <img class="cta__ring" src="assets/img/ring.avif" alt="" aria-hidden="true" loading="lazy" decoding="async">
+      <h2 id="cta-title" class="cta__title">Every Great Story Needs A Powerful Ending.</h2>
+
+      <!-- The zone is static (used to measure distance); the button inside moves -->
+      <div class="magnetic-zone">
+        <a class="btn magnetic" href="#contact"><span class="btn__label">LET'S BE CREATIVE</span></a>
+      </div>
+    </section>
+
+    <footer class="contact" id="contact">
+      <div class="contact__bg" aria-hidden="true">
+        <img src="assets/img/contact-us-bg.webp" alt="" loading="lazy" decoding="async">
+      </div>
+
+      <div class="contact__inner">
+        <h2 class="contact__title">GET IN TOUCH</h2>
+        <!-- TODO: replace placeholder contact details -->
+        <ul class="contact__links">
+          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+          <li><a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://behance.net/" target="_blank" rel="noopener">Behance</a></li>
+          <li><a href="https://tiktok.com/" target="_blank" rel="noopener">TikTok</a></li>
+        </ul>
+      </div>
+
+      <!-- Marquee repeated from earlier in the page; duplicated in JS for a seamless loop -->
+      <div class="marquee" aria-label="It Was Always Going to Be This Way.">
+        <div class="marquee__track" aria-hidden="true">
+          <span>It Was Always Going to Be This Way.</span>
+          <span>It Was Always Going to Be This Way.</span>
+          <span>It Was Always Going to Be This Way.</span>
+          <span>It Was Always Going to Be This Way.</span>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+</body>
+</html>
